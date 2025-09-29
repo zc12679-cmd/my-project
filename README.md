@@ -20,10 +20,12 @@
    echo "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY=你的GoogleMapsAPI金鑰" > .env
    ```
 
-   > 建議將金鑰限制於必要的 API 及網域，或透過自建後端代理封裝 API 呼叫。
+   > 建議將金鑰限制於必要的 API 及網域，或透過自建後端代理封裝 API 
+   > codex/create-product-requirements-document-for-app-s4iumq
    > 若金鑰曾公開（例如貼在 issue、討論區或版本控制），請立即在 Google Cloud Console 重新產生並刪除舊金鑰。
 
    專案附上 [`app/.env.example`](app/.env.example) 可供複製為 `.env`，記得不要將真實金鑰提交到 Git。
+  main
 
 3. 啟動開發伺服器：
 
