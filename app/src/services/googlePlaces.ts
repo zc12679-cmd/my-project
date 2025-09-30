@@ -1,5 +1,9 @@
 import { Restaurant, SearchFilters } from '../types/restaurant';
 import { haversineDistance } from '../utils/location';
+ codex/create-product-requirements-document-for-app-e56982
+import { GOOGLE_MAPS_API_KEY } from '../config/apiKeys';
+=======
+  main
 
 type FetchNearbyRestaurantsArgs = {
   latitude: number;
@@ -39,7 +43,11 @@ interface PlaceDetailsResult {
 }
 
 const buildPhotoUrl = (reference: string) =>
+ codex/create-product-requirements-document-for-app-e56982
+  `${GOOGLE_PLACES_BASE}/photo?maxwidth=${PHOTO_MAX_WIDTH}&photo_reference=${reference}&key=${GOOGLE_MAPS_API_KEY}`;
+=======
   `${GOOGLE_PLACES_BASE}/photo?maxwidth=${PHOTO_MAX_WIDTH}&photo_reference=${reference}&key=${process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY}`;
+ main
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -82,7 +90,12 @@ const fetchNearbyPage = async (
 const fetchPlaceDetails = async (placeId: string) => {
   const params = new URLSearchParams({
     place_id: placeId,
+    
+    codex/create-product-requirements-document-for-app-e56982
+    key: GOOGLE_MAPS_API_KEY,
+
     key: process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY ?? '',
+ main
     language: 'zh-TW',
     fields: 'formatted_phone_number,formatted_address,website',
   });
@@ -106,7 +119,11 @@ export const fetchNearbyRestaurants = async ({
   const params = new URLSearchParams({
     location: `${latitude},${longitude}`,
     radius: filters.radiusMeters.toString(),
+ codex/create-product-requirements-document-for-app-e56982
+    key: GOOGLE_MAPS_API_KEY,
+=======
     key: process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY ?? '',
+ main
     language: 'zh-TW',
   });
 
@@ -128,7 +145,11 @@ export const fetchNearbyRestaurants = async ({
   const aggregated: Restaurant[] = [];
   let pageToken: string | undefined;
 
+ codex/create-product-requirements-document-for-app-e56982
+  const apiKey = GOOGLE_MAPS_API_KEY;
+=======
   const apiKey = process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY ?? '';
+ main
 
   for (let i = 0; i < 3; i += 1) {
     const url = pageToken

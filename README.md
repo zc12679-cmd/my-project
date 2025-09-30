@@ -17,6 +17,16 @@
 2. 建立 `.env`（或 `app.config.js`）設定 `EXPO_PUBLIC_GOOGLE_MAPS_API_KEY` 供 Google Places API 使用：
 
    ```bash
+ codex/create-product-requirements-document-for-app-e56982
+   cp .env.example .env
+   ```
+
+   本倉庫已直接填入一組測試用金鑰，複製即可執行；若你已申請自己的金鑰，也可以改寫 `.env` 或環境變數覆蓋。
+
+   > 建議將金鑰限制於必要的 API 及網域，或透過自建後端代理封裝 API 呼叫。
+   > 若金鑰曾公開（例如貼在 issue、討論區或版本控制），請立即在 Google Cloud Console 重新產生並刪除舊金鑰。
+
+
    echo "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY=你的GoogleMapsAPI金鑰" > .env
    ```
 
@@ -27,6 +37,7 @@
    專案附上 [`app/.env.example`](app/.env.example) 可供複製為 `.env`，記得不要將真實金鑰提交到 Git。
   main
 
+  main
 3. 啟動開發伺服器：
 
    ```bash

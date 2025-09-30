@@ -1,0 +1,2 @@
+export const GOOGLE_MAPS_API_KEY =
+  process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY ?? 'AIzaSyDX6k5dl5AjC_BMRSQD45wuht1AKno59zI';
